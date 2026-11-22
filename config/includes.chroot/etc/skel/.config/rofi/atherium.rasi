@@ -1,0 +1,72 @@
+* {
+    bg:        #070d1ae6;
+    bg-alt:    #0e243df0;
+    fg:        #e2e8f0;
+    cyan:      #00e5ff;
+    cyan-dim:  #38bdf8;
+    border-c:  #00e5ff;
+    background-color: transparent;
+    text-color: @fg;
+}
+
+window {
+    width: 560px;
+    background-color: @bg;
+    border: 2px solid;
+    border-color: @border-c;
+    border-radius: 6px;
+    padding: 16px;
+}
+
+mainbox {
+    spacing: 12px;
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    background-color: #0b1324;
+    border: 1px solid;
+    border-color: @cyan-dim;
+    border-radius: 4px;
+    padding: 10px 12px;
+    spacing: 10px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: @cyan;
+}
+
+entry {
+    placeholder: "Search modules & apps...";
+    placeholder-color: #64748b;
+    text-color: #f8fafc;
+}
+
+listview {
+    lines: 8;
+    columns: 1;
+    spacing: 4px;
+    fixed-height: false;
+}
+
+element {
+    padding: 8px 10px;
+    spacing: 10px;
+    border-radius: 4px;
+}
+
+element selected {
+    background-color: @bg-alt;
+    border: 1px solid;
+    border-color: @cyan;
+    text-color: @cyan;
+}
+
+element-icon {
+    size: 24px;
+}
+
+element-text {
+    vertical-align: 0.5;
+}

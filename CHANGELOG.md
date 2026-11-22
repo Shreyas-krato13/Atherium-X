@@ -2,6 +2,12 @@
 
 All notable phases and size/verification milestones for **Atherium-X** are documented here.
 
+## [Phase 6] - Desktop & JARVIS-Style HUD Interface (Verified Statically)
+- Added `config/package-lists/06-desktop.list.chroot` (`xinit`, `openbox`, `picom`, `tint2`, `rofi`, `conky-std`, `dunst`, `libnotify-bin`, `feh`, `fonts-dejavu-core`, `fonts-hack`, `dmz-cursor-theme`).
+- Built custom dark-glass & electric-cyan Openbox + GTK3 themes (`Atherium-X`), `picom.conf`, `tint2rc`, `rofi/atherium.rasi`, `conky.conf` telemetry HUD, and `dunstrc`.
+- Created original neon line-art SVG icon theme `Atherium-X-Icons` (8 core icons + app icon symlinks), 1920x1080 HUD wallpaper (`168.3 KB` < 1 MB), and startup greeting `"Welcome back. Atherium-X online."`.
+- **Static Verification:** PASS — ISO **607.00 MB** / 700 MB (**+37.00 MB**; 93.00 MB remaining; SquashFS 527.11 MB). *(Visual HUD: NEEDS HARDWARE TEST)*
+
 ## [Phase 5] - In-Built Store: Snap Store (Verified Statically)
 - Added `config/package-lists/05-snap.list.chroot` (`snapd`, `apparmor`, `apparmor-utils`, `squashfs-tools`, `fuse3`), enabled `snapd`/`apparmor` services, and added `apparmor=1 security=apparmor` to `--bootappend-live`.
 - Added `/usr/local/bin/atherium-store` + desktop entry for on-demand `snap-store` installation (pre-seeding `snap-store` + `core22` + `gnome-42-2204` + `gtk-common-themes` would add ~730 MB).

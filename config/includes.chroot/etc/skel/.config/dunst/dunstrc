@@ -1,0 +1,33 @@
+[global]
+    font = Hack 10
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    width = 360
+    height = 120
+    origin = top-right
+    offset = 20x48
+    frame_width = 2
+    frame_color = "#00e5ff"
+    separator_color = "#1e3a5f"
+    corner_radius = 6
+    padding = 12
+    horizontal_padding = 14
+    transparency = 10
+
+[urgency_low]
+    background = "#070d1a"
+    foreground = "#cbd5e1"
+    timeout = 5
+
+[urgency_normal]
+    background = "#070d1a"
+    foreground = "#e0f2fe"
+    frame_color = "#00e5ff"
+    timeout = 7
+
+[urgency_critical]
+    background = "#1a0710"
+    foreground = "#fecdd3"
+    frame_color = "#f43f5e"
+    timeout = 0

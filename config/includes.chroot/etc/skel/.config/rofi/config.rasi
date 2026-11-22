@@ -1,0 +1,9 @@
+configuration {
+    modi: "drun,run";
+    show-icons: true;
+    icon-theme: "Atherium-X-Icons";
+    font: "Hack 10.5";
+    display-drun: "◈ ATHERIUM HUD";
+    drun-display-format: "{name}";
+}
+@theme "~/.config/rofi/atherium.rasi"

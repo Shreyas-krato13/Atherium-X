@@ -1,0 +1,66 @@
+/* Atherium-X GTK3 Dark-Glass & Electric Cyan Theme */
+@define-color bg_color #0b1120;
+@define-color fg_color #e2e8f0;
+@define-color base_color #070d1a;
+@define-color text_color #f1f5f9;
+@define-color selected_bg_color #00b8d4;
+@define-color selected_fg_color #050914;
+@define-color accent_cyan #00e5ff;
+@define-color border_color #1e3a5f;
+
+* {
+    background-clip: padding-box;
+    outline-color: @accent_cyan;
+}
+
+window, .background, dialog, box, paned, notebook, stack {
+    background-color: @bg_color;
+    color: @fg_color;
+}
+
+headerbar, toolbar, menubar {
+    background-color: #070d1a;
+    color: @fg_color;
+    border-bottom: 1px solid @accent_cyan;
+}
+
+entry, textview, treeview, list, iconview {
+    background-color: @base_color;
+    color: @text_color;
+    border: 1px solid @border_color;
+    border-radius: 4px;
+}
+
+entry:focus {
+    border-color: @accent_cyan;
+}
+
+button {
+    background-color: #0f1b30;
+    color: @fg_color;
+    border: 1px solid @border_color;
+    border-radius: 4px;
+    padding: 4px 10px;
+}
+
+button:hover {
+    background-color: #122847;
+    border-color: @accent_cyan;
+    color: @accent_cyan;
+}
+
+button:active, *:selected {
+    background-color: @selected_bg_color;
+    color: @selected_fg_color;
+}
+
+scrollbar slider {
+    background-color: #1e3a5f;
+    border-radius: 4px;
+    min-width: 6px;
+    min-height: 6px;
+}
+
+scrollbar slider:hover {
+    background-color: @accent_cyan;
+}

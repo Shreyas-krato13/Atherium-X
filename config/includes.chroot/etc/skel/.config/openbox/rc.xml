@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openbox_config xmlns="http://openbox.org/3.4/rc">
+  <resistance>
+    <strength>10</strength>
+    <screen_edge_strength>20</screen_edge_strength>
+  </resistance>
+  <focus>
+    <focusNew>yes</focusNew>
+    <followMouse>no</followMouse>
+  </focus>
+  <placement>
+    <policy>Smart</policy>
+    <center>yes</center>
+  </placement>
+  <theme>
+    <name>Atherium-X</name>
+    <titleLayout>NLIMC</titleLayout>
+    <keepBorder>yes</keepBorder>
+    <animateIconify>yes</animateIconify>
+    <font place="ActiveWindow">
+      <name>Hack</name><size>9</size><weight>Bold</weight><slant>Normal</slant>
+    </font>
+    <font place="InactiveWindow">
+      <name>Hack</name><size>9</size><weight>Normal</weight><slant>Normal</slant>
+    </font>
+    <font place="MenuHeader">
+      <name>Hack</name><size>9</size><weight>Bold</weight><slant>Normal</slant>
+    </font>
+    <font place="MenuItem">
+      <name>DejaVu Sans</name><size>9</size><weight>Normal</weight><slant>Normal</slant>
+    </font>
+  </theme>
+  <desktops>
+    <number>2</number>
+    <firstdesk>1</firstdesk>
+    <names>
+      <name>HUD-1</name>
+      <name>HUD-2</name>
+    </names>
+  </desktops>
+  <keyboard>
+    <keybind key="A-space">
+      <action name="Execute"><command>rofi -show drun -theme ~/.config/rofi/atherium.rasi</command></action>
+    </keybind>
+    <keybind key="Super_L">
+      <action name="Execute"><command>rofi -show drun -theme ~/.config/rofi/atherium.rasi</command></action>
+    </keybind>
+    <keybind key="C-A-t">
+      <action name="Execute"><command>x-terminal-emulator</command></action>
+    </keybind>
+    <keybind key="A-F4">
+      <action name="Close"/>
+    </keybind>
+    <keybind key="A-Tab">
+      <action name="NextWindow"/>
+    </keybind>
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute"><command>brightnessctl set +10%</command></action>
+    </keybind>
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute"><command>brightnessctl set 10%-</command></action>
+    </keybind>
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute"><command>amixer sset Master 5%+</command></action>
+    </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute"><command>amixer sset Master 5%-</command></action>
+    </keybind>
+    <keybind key="XF86AudioMute">
+      <action name="Execute"><command>amixer sset Master toggle</command></action>
+    </keybind>
+  </keyboard>
+  <mouse>
+    <context name="Frame">
+      <mousebind button="A-Left" action="Drag"><action name="Move"/></mousebind>
+      <mousebind button="A-Right" action="Drag"><action name="Resize"/></mousebind>
+    </context>
+    <context name="Titlebar">
+      <mousebind button="Left" action="Drag"><action name="Move"/></mousebind>
+      <mousebind button="Left" action="DoubleClick"><action name="ToggleMaximize"/></mousebind>
+    </context>
+    <context name="Close">
+      <mousebind button="Left" action="Click"><action name="Close"/></mousebind>
+    </context>
+    <context name="Maximize">
+      <mousebind button="Left" action="Click"><action name="ToggleMaximize"/></mousebind>
+    </context>
+    <context name="Iconify">
+      <mousebind button="Left" action="Click"><action name="Iconify"/></mousebind>
+    </context>
+  </mouse>
+</openbox_config>

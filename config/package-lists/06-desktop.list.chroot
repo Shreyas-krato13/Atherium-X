@@ -1,0 +1,17 @@
+# Phase 6: Lightweight Desktop & JARVIS-Style HUD Interface
+# No full GNOME/KDE — lean Xorg + Openbox + picom + tint2 + rofi + conky + dunst.
+xinit
+openbox
+picom
+tint2
+rofi
+conky-std
+dunst
+libnotify-bin
+feh
+xdotool
+x11-xserver-utils
+fonts-dejavu-core
+fonts-hack
+dmz-cursor-theme
+librsvg2-common

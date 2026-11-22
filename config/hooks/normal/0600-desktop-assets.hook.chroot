@@ -1,0 +1,29 @@
+#!/bin/sh
+set -e
+
+echo "I: Atherium-X: Installing Atherium-X-Icons theme, symlinks, and HUD wallpaper..."
+
+ICON_DIR="/usr/share/icons/Atherium-X-Icons/scalable/apps"
+if [ -d "${ICON_DIR}" ]; then
+    cd "${ICON_DIR}"
+    # Map standard freedesktop / Debian app icon names to our original SVG icons
+    ln -sf atherium-browser.svg firefox-esr.svg
+    ln -sf atherium-browser.svg web-browser.svg
+    ln -sf atherium-files.svg system-file-manager.svg
+    ln -sf atherium-files.svg pcmanfm.svg
+    ln -sf atherium-terminal.svg utilities-terminal.svg
+    ln -sf atherium-terminal.svg lxterminal.svg
+    ln -sf atherium-store.svg snap-store.svg
+    ln -sf atherium-store.svg system-software-install.svg
+    ln -sf atherium-settings.svg preferences-system.svg
+    ln -sf atherium-network.svg network-wireless.svg
+    ln -sf atherium-network.svg nm-device-wired.svg
+    ln -sf atherium-games.svg applications-games.svg
+    ln -sf atherium-monitor.svg utilities-system-monitor.svg
+
+    if command -v gtk-update-icon-cache >/dev/null 2>&1; then
+        gtk-update-icon-cache -f -t /usr/share/icons/Atherium-X-Icons || true
+    fi
+fi
+
+chmod +x /etc/skel/.config/openbox/autostart /etc/skel/.xinitrc || true

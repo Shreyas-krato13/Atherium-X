@@ -1,0 +1,25 @@
+#!/bin/sh
+# Atherium-X Openbox Autostart
+
+# Set HUD wallpaper
+if [ -f /usr/share/backgrounds/atherium-x/atherium-hud.png ]; then
+    feh --bg-fill /usr/share/backgrounds/atherium-x/atherium-hud.png &
+fi
+
+# Start compositor (dark glass + smooth fade)
+picom --config ~/.config/picom/picom.conf -b &
+
+# Start notification daemon
+dunst &
+
+# Start top HUD panel
+tint2 &
+
+# Start NetworkManager tray applet
+nm-applet &
+
+# Start right-side JARVIS telemetry HUD
+conky -c ~/.config/conky/conky.conf &
+
+# Display greeting banner once HUD is ready
+(sleep 1.2 && /usr/local/bin/atherium-greet) &

@@ -1,0 +1,84 @@
+# Atherium-X Top HUD Panel (tint2)
+rounded = 0
+border_width = 0
+border_sides = B
+border_content_tint_weight = 0
+background_color = #070d1a 92
+border_color = #00e5ff 90
+
+# Background 1: Panel bar
+rounded = 0
+border_width = 2
+border_sides = B
+background_color = #070d1a 92
+border_color = #00e5ff 85
+
+# Background 2: Active task / button
+rounded = 4
+border_width = 1
+border_sides = TBLR
+background_color = #0e243d 95
+border_color = #00e5ff 95
+
+# Background 3: Inactive task
+rounded = 4
+border_width = 1
+border_sides = TBLR
+background_color = #0b1324 80
+border_color = #1e3a5f 70
+
+panel_items = P:T:S:B:C
+panel_size = 100% 34
+panel_margin = 0 0
+panel_padding = 8 3 8
+panel_background_id = 1
+panel_position = top center horizontal
+panel_layer = top
+panel_monitor = all
+wm_menu = 1
+
+# Button: HUD App Launcher (rofi)
+button = new
+button_text = ◈ ATHERIUM-X
+button_tooltip = Launch Applications (Alt+Space)
+button_font = Hack Bold 10
+button_font_color = #00e5ff 100
+button_background_id = 2
+button_padding = 10 2
+button_lclick_command = rofi -show drun -theme ~/.config/rofi/atherium.rasi
+
+# Taskbar
+taskbar_mode = single_desktop
+taskbar_padding = 6 0 6
+taskbar_background_id = 0
+task_icon = 1
+task_text = 1
+task_centered = 0
+task_maximum_size = 180 28
+task_padding = 6 2 6
+task_font = DejaVu Sans 9
+task_font_color = #94a3b8 100
+task_active_font_color = #00e5ff 100
+task_background_id = 3
+task_active_background_id = 2
+
+# System Tray (nm-applet etc.)
+systray_padding = 6 4 6
+systray_background_id = 0
+systray_icon_size = 18
+systray_icon_asb = 100 0 0
+
+# Battery
+battery_tooltip = 1
+battery_low_status = 15
+battery_font_color = #38bdf8 100
+bat1_format = BAT %p
+bat1_font = Hack 9
+battery_padding = 6 2
+
+# Clock
+time1_format = %H:%M:%S  |  %a %d %b
+time1_font = Hack Bold 9.5
+clock_font_color = #00e5ff 100
+clock_padding = 8 2
+clock_background_id = 0

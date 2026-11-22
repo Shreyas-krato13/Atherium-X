@@ -26,7 +26,15 @@ build:
 	rsync -a --delete --exclude='cache' --exclude='.build' --exclude='chroot' --exclude='binary' \
 		auto config "$(BUILD_DIR)/"
 	@if [ -d assets ]; then rsync -a --delete assets "$(BUILD_DIR)/"; fi
-	find "$(BUILD_DIR)/auto" "$(BUILD_DIR)/config" -type f -exec sed -i 's/\r$$//' {} + 2>/dev/null || true
+	@if [ -d assets/icons/Atherium-X-Icons ]; then \
+		mkdir -p "$(BUILD_DIR)/config/includes.chroot/usr/share/icons"; \
+		rsync -a assets/icons/Atherium-X-Icons "$(BUILD_DIR)/config/includes.chroot/usr/share/icons/"; \
+	fi
+	@if [ -f assets/wallpaper/atherium-hud.png ]; then \
+		mkdir -p "$(BUILD_DIR)/config/includes.chroot/usr/share/backgrounds/atherium-x"; \
+		cp -f assets/wallpaper/atherium-hud.png "$(BUILD_DIR)/config/includes.chroot/usr/share/backgrounds/atherium-x/"; \
+	fi
+	find "$(BUILD_DIR)/auto" "$(BUILD_DIR)/config" -type f ! -name '*.png' -exec sed -i 's/\r$$//' {} + 2>/dev/null || true
 	chmod +x "$(BUILD_DIR)"/auto/*
 	find "$(BUILD_DIR)/config/hooks" -type f -name '*.hook.*' -exec chmod +x {} + 2>/dev/null || true
 	find "$(BUILD_DIR)/config/includes.chroot/usr/local/bin" -type f -exec chmod +x {} + 2>/dev/null || true

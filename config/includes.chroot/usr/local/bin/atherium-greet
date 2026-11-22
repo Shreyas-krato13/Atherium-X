@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Atherium-X Startup Greeting Banner (text/visual HUD notification, zero heavy AI models)
+notify-send \
+    -u normal \
+    -t 8000 \
+    -i atherium-monitor \
+    "ATHERIUM-X // SYSTEM ONLINE" \
+    "Welcome back. Atherium-X online.\nPress Alt+Space to open HUD Launcher."
