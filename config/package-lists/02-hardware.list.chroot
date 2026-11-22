@@ -1,0 +1,39 @@
+# Phase 2: Hardware compatibility (prioritized for Dell Vostro + common laptops)
+# See docs/HARDWARE.md for per-package justification and pruned firmware notes.
+
+# Wireless / Ethernet / Audio DSP firmware (non-free-firmware)
+firmware-iwlwifi
+firmware-realtek
+firmware-atheros
+firmware-brcm80211
+firmware-sof-signed
+
+# CPU microcode (Intel primary for Dell Vostro + AMD for Vostro Ryzen models)
+intel-microcode
+amd64-microcode
+
+# Xorg display server & GPU drivers (modesetting is built into xserver-xorg-core)
+xserver-xorg-core
+xserver-xorg-video-intel
+xserver-xorg-video-amdgpu
+xserver-xorg-video-nouveau
+xserver-xorg-video-vesa
+xserver-xorg-video-fbdev
+libgl1-mesa-dri
+mesa-utils
+
+# Input (touchpad & keyboard via libinput)
+xserver-xorg-input-libinput
+
+# Audio (ALSA + PipeWire + WirePlumber)
+alsa-utils
+pipewire
+pipewire-alsa
+pipewire-pulse
+wireplumber
+
+# ACPI, power, battery, screen brightness
+acpid
+acpi
+upower
+brightnessctl
