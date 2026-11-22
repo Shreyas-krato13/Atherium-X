@@ -1,0 +1,18 @@
+# Build outputs (ISOs are large binaries; checksums and reports ARE tracked)
+*.iso
+*.img
+live-image-*
+chroot/
+binary/
+cache/
+.build/
+config/binary
+config/bootstrap
+config/chroot
+config/common
+config/source
+build.log
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

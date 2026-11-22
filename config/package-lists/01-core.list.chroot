@@ -1,0 +1,18 @@
+# Phase 1: Minimal bootable Debian stable (trixie) live core
+# Stock Debian kernel, systemd, live-boot/live-config (auto-login), minimal CLI tools.
+
+linux-image-amd64
+live-boot
+live-config
+live-config-systemd
+systemd-sysv
+sudo
+locales
+kbd
+console-setup
+less
+nano
+pciutils
+usbutils
+procps
+iproute2

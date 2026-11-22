@@ -1,0 +1,29 @@
+#!/bin/sh
+set -e
+
+# Atherium-X live-build configuration
+# Base: Debian stable (13 / trixie), amd64, BIOS + UEFI hybrid ISO
+
+lb config noauto \
+    --mode debian \
+    --distribution trixie \
+    --architectures amd64 \
+    --archive-areas "main contrib non-free-firmware" \
+    --linux-flavours amd64 \
+    --debian-installer none \
+    --firmware-chroot false \
+    --firmware-binary false \
+    --binary-images iso-hybrid \
+    --bootloaders "syslinux,grub-efi" \
+    --uefi-secure-boot auto \
+    --apt-recommends false \
+    --apt-indices false \
+    --apt-source-archives false \
+    --chroot-squashfs-compression-type xz \
+    --memtest none \
+    --checksums sha256 \
+    --iso-application "Atherium-X Live" \
+    --iso-publisher "Atherium-X Project" \
+    --iso-volume "ATHERIUM_X" \
+    --bootappend-live "boot=live components quiet hostname=atherium-x username=atherium locales=en_US.UTF-8 keyboard-layouts=us" \
+    "${@}"

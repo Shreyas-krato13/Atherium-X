@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+
+# Record installed package sizes (KiB) before squashfs compression for accurate top-20 size reports.
+echo "I: Atherium-X: Recording installed package sizes..."
+dpkg-query -W -f='${Installed-Size}\t${Package}\t${Version}\n' | sort -rn > /etc/atherium-packages.tsv

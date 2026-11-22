@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+export MKSQUASHFS_OPTIONS="-comp xz -b 1M -Xbcj x86 -no-exports"
+
+lb build noauto "${@}" 2>&1 | tee build.log
