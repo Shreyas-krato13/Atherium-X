@@ -7,4 +7,4 @@ phase,components_added,firmware_kernel_time,userspace_time,systemd_total,stopwat
 "Phase 6","Desktop & JARVIS-style HUD (Xorg + Openbox + picom + tint2 + rofi + SVG icons)","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","607.00"
 "Phase 7","Boot animation & branding (GRUB/ISOLINUX theme + Plymouth arc-reactor)","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","632.00"
 "Phase 8","Apps, browser, games, zram + earlyoom memory management","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","762.00"
-"Phase 9","Final optimization & Windows-style JARVIS HUD (<= 700 MB release ISO)","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","691.00"
+"Phase 9","Final stabilized release (lxpanel + Polkit Wi-Fi + HUD wallpaper + quick_exec)","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","651.00"

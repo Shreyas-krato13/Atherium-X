@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Power Control
+Comment=Shutdown, Reboot or Logout
+Exec=/usr/local/bin/atherium-power
+Icon=atherium-settings
+Terminal=false
+Type=Application
+Categories=System;

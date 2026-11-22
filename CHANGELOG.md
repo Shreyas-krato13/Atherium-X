@@ -2,6 +2,13 @@
 
 All notable phases and size/verification milestones for **Atherium-X** are documented here.
 
+## [Phase 9.3] - Stability & Real-Hardware Bugfix Pass (Verified Statically)
+- **Fixed disappearing bottom taskbar:** Replaced crashy `tint2` with Debian's rock-solid **`lxpanel`** (`atherium` profile at bottom, 42px dark obsidian + cyan, categorized Start Menu, pinned Browser/Files/Terminal/Store/Games/Wi-Fi, running tasks, tray, battery, clock, Power). Bonus: removing `tint2` eliminated 40 MB of transitive `libgdal`/`proj-data` bloat!
+- **Fixed Wi-Fi connection failure:** Added **`lxpolkit`** + `/etc/polkit-1/rules.d/50-atherium-network.rules` and upgraded `atherium-wifi` to unblock `rfkill`, clear stale failed profiles, and connect via `sudo nmcli --wait 20 dev wifi connect` with live progress & IP confirmation.
+- **Fixed desktop icon execution prompt:** Added `/etc/skel/.config/libfm/libfm.conf` (`quick_exec=1`) so all Desktop `.desktop` icons launch immediately on double-click.
+- **Fixed black wallpaper:** Added `/etc/skel/.config/pcmanfm/default/desktop-items-0.conf` pointing directly to `/usr/share/backgrounds/atherium-x/atherium-hud.png`.
+- **Static Verification:** PASS — ISO **651.00 MB** / 700 MB (**-40.00 MB** smaller; 49.00 MB remaining; SquashFS 558.34 MB), BIOS + UEFI hybrid + SHA256 verified. *(Real-hardware verification: NEEDS HARDWARE TEST)*
+
 ## [Phase 9.2] - Windows-Style JARVIS HUD UX Upgrade (Verified Statically)
 - Replaced minimal top bar with a **44px Windows-style bottom HUD taskbar** (`tint2`): **`◈ START`**, pinned **Browser / Files / Terminal / Store / Games**, running tasks, enlarged `24px` system tray (`nm-applet`), dedicated **`Wi-Fi`** button, **Battery %**, 2-line **Clock/Date**, and **`Power`** (**Shutdown / Reboot / Logout**).
 - Upgraded **Start Menu** (`atherium-menu` / `rofi`) to an `82% x 76%` translucent dark-glass **5-column large-icon (52px) app grid** with search bar; fixed `tint2` `~` expansion bug.

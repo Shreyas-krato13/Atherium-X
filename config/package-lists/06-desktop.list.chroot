@@ -5,7 +5,8 @@ xserver-xorg-legacy
 dbus-x11
 openbox
 picom
-tint2
+lxpanel
+lxpolkit
 rofi
 conky-std
 dunst

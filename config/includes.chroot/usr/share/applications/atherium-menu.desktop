@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Atherium HUD Launcher
+Comment=Open Full-Screen JARVIS App Grid
+Exec=/usr/local/bin/atherium-menu
+Icon=atherium-monitor
+Terminal=false
+Type=Application
+Categories=System;

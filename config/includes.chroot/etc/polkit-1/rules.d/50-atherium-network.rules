@@ -1,0 +1,8 @@
+// Allow live user 'atherium' (and sudo/netdev members) full NetworkManager & Power control
+polkit.addRule(function(action, subject) {
+    if ((action.id.indexOf("org.freedesktop.NetworkManager.") === 0 ||
+         action.id.indexOf("org.freedesktop.login1.") === 0) &&
+        (subject.user === "atherium" || subject.isInGroup("sudo") || subject.isInGroup("netdev"))) {
+        return polkit.Result.YES;
+    }
+});

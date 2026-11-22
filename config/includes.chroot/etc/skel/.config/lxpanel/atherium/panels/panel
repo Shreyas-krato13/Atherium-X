@@ -1,0 +1,135 @@
+# Atherium-X Rock-Solid Bottom Taskbar (lxpanel)
+Global {
+    edge=bottom
+    allign=left
+    margin=0
+    widthtype=percent
+    width=100
+    height=42
+    transparent=1
+    tintcolor=#070d1a
+    alpha=235
+    autohide=0
+    heightwhenhidden=2
+    setdocktype=1
+    setpartialstrut=1
+    usefontcolor=1
+    fontcolor=#e0f2fe
+    usefontsize=1
+    fontsize=10
+    background=0
+    iconsize=28
+}
+
+Plugin {
+    type=menu
+    Config {
+        image=/usr/share/icons/Atherium-X-Icons/scalable/apps/atherium-monitor.svg
+        system {
+        }
+        separator {
+        }
+        item {
+            command=run
+        }
+        separator {
+        }
+        item {
+            name=Power (Shutdown / Reboot)
+            image=/usr/share/icons/Atherium-X-Icons/scalable/apps/atherium-settings.svg
+            action=/usr/local/bin/atherium-power
+        }
+    }
+}
+
+Plugin {
+    type=launchbar
+    Config {
+        Button {
+            id=atherium-menu.desktop
+        }
+        Button {
+            id=firefox-esr.desktop
+        }
+        Button {
+            id=pcmanfm.desktop
+        }
+        Button {
+            id=lxterminal.desktop
+        }
+        Button {
+            id=atherium-store.desktop
+        }
+        Button {
+            id=atherium-games.desktop
+        }
+        Button {
+            id=atherium-wifi.desktop
+        }
+    }
+}
+
+Plugin {
+    type=space
+    Config {
+        Size=8
+    }
+}
+
+Plugin {
+    type=taskbar
+    expand=1
+    Config {
+        tooltips=1
+        IconsOnly=0
+        ShowAllDesks=0
+        UseMouseWheel=1
+        UseUrgencyHint=1
+        FlatButton=0
+        MaxTaskWidth=180
+        spacing=2
+    }
+}
+
+Plugin {
+    type=tray
+    Config {
+    }
+}
+
+Plugin {
+    type=batt
+    Config {
+        BackgroundColor=#070d1a
+        ChargingColor1=#00e5ff
+        ChargingColor2=#38bdf8
+        DischargingColor1=#38bdf8
+        DischargingColor2=#0284c7
+        HideIfNoBattery=1
+        AlarmCommand=notify-send "Battery Low" "Please connect charger"
+        AlarmTime=10
+        BorderWidth=1
+        Size=10
+        ShowExtendedInformation=0
+    }
+}
+
+Plugin {
+    type=dclock
+    Config {
+        ClockFmt=%H:%M  %d-%m-%Y
+        TooltipFmt=%A %x
+        BoldFont=1
+        IconOnly=0
+        CenterText=1
+    }
+}
+
+Plugin {
+    type=launchbar
+    Config {
+        Button {
+            id=atherium-power.desktop
+        }
+    }
+}
