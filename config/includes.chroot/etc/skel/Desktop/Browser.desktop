@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Firefox Browser
+Exec=firefox-esr
+Icon=atherium-browser
+Type=Application
+Terminal=false

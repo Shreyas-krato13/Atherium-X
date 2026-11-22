@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Wi-Fi Networks
+Comment=Scan and connect to Wi-Fi networks
+Exec=/usr/local/bin/atherium-wifi
+Icon=atherium-network
+Terminal=false
+Type=Application
+Categories=Settings;Network;
+Keywords=wifi;wireless;network;internet;

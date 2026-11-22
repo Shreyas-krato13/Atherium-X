@@ -1,11 +1,11 @@
 # Atherium-X Size Report — phase-9
 
-- **Generated:** 2026-11-22 10:08:52 UTC
+- **Generated:** 2026-11-22 11:15:20 UTC
 - **ISO File:** `atherium-x.iso`
-- **ISO Size:** **685.00 MB** (718274560 bytes)
+- **ISO Size:** **691.00 MB** (724566016 bytes)
 - **Hard Limit:** 700 MB
-- **Budget Remaining:** 15.00 MB
-- **SquashFS Size (xz):** 593.10 MB
+- **Budget Remaining:** 9.00 MB
+- **SquashFS Size (xz):** 598.90 MB
 
 ## Top 20 Largest Installed Packages (Uncompressed Installed-Size)
 

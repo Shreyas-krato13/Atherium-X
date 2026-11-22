@@ -1,18 +1,19 @@
 #!/bin/sh
 # Atherium-X Openbox Autostart
 
-# Set HUD wallpaper
+# Launch desktop manager (draws HUD wallpaper + clickable Desktop app icons)
 if [ -f /usr/share/backgrounds/atherium-x/atherium-hud.png ]; then
+    pcmanfm --desktop --set-wallpaper=/usr/share/backgrounds/atherium-x/atherium-hud.png --wallpaper-mode=stretch &
     feh --bg-fill /usr/share/backgrounds/atherium-x/atherium-hud.png &
 fi
 
 # Start compositor (dark glass + smooth fade)
 picom --config ~/.config/picom/picom.conf -b &
 
-# Start notification daemon
+# Start notification daemon (top-center, clear of Conky)
 dunst &
 
-# Start top HUD panel
+# Start Windows-style bottom HUD taskbar
 tint2 &
 
 # Start NetworkManager tray applet

@@ -5,8 +5,8 @@
     alignment = left
     width = 360
     height = 120
-    origin = top-right
-    offset = 20x48
+    origin = top-center
+    offset = 0x18
     frame_width = 2
     frame_color = "#00e5ff"
     separator_color = "#1e3a5f"

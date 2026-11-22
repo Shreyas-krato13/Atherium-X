@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=System Monitor
+Exec=lxterminal --title="Atherium System Monitor" -e htop
+Icon=atherium-monitor
+Type=Application
+Terminal=false

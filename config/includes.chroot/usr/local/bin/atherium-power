@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Atherium-X Power Menu (Shutdown / Reboot / Logout)
+ACTION=$(zenity --list \
+    --title="Atherium-X // Power Control" \
+    --text="Select a power action:" \
+    --width=340 --height=240 \
+    --column="Action" \
+    "Shutdown" \
+    "Reboot" \
+    "Logout" || true)
+
+case "${ACTION}" in
+    Shutdown) sudo poweroff ;;
+    Reboot)   sudo reboot ;;
+    Logout)   openbox --exit ;;
+    *)        exit 0 ;;
+esac

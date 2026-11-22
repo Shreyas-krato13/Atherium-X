@@ -26,4 +26,4 @@ if [ -d "${ICON_DIR}" ]; then
     fi
 fi
 
-chmod +x /etc/skel/.config/openbox/autostart /etc/skel/.xinitrc || true
+chmod +x /etc/skel/.config/openbox/autostart /etc/skel/.xinitrc /etc/skel/Desktop/*.desktop 2>/dev/null || true

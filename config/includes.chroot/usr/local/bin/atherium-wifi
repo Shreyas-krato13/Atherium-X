@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Atherium-X GUI Wi-Fi & Network Manager (zenity + nmcli)
+# One-click Wi-Fi scan, connect, password prompt, and disconnect.
+
+if ! command -v nmcli >/dev/null 2>&1; then
+    zenity --error --title="Atherium Wi-Fi" --text="NetworkManager (nmcli) is not available."
+    exit 1
+fi
+
+# Ensure Wi-Fi radio is enabled
+nmcli radio wifi on 2>/dev/null || true
+
+# Trigger a fresh scan
+(
+    echo "25" ; echo "# Scanning nearby Wi-Fi networks..."
+    nmcli dev wifi rescan 2>/dev/null || true
+    sleep 1.5
+    echo "100" ; echo "# Done."
+) | zenity --progress --title="Atherium-X // Wi-Fi Scanner" --auto-close --no-cancel --width=360 || true
+
+# Build list of networks
+ROWS=()
+while IFS=: read -r INUSE SSID SIGNAL SEC; do
+    [[ -z "${SSID}" ]] && continue
+    STATUS="Available"
+    [[ "${INUSE}" == "*" ]] && STATUS="Connected"
+    [[ -z "${SEC}" ]] && SEC="Open"
+    ROWS+=("${STATUS}" "${SSID}" "${SIGNAL}%" "${SEC}")
+done < <(nmcli -t -f IN-USE,SSID,SIGNAL,SECURITY dev wifi list 2>/dev/null | awk -F: '!seen[$2]++')
+
+if [[ ${#ROWS[@]} -eq 0 ]]; then
+    zenity --warning --title="Atherium-X // Wi-Fi" --width=400 \
+        --text="No Wi-Fi networks found.\n\nMake sure your laptop's Wi-Fi hardware switch is ON, or plug in an Ethernet cable."
+    exit 0
+fi
+
+SELECTED=$(zenity --list \
+    --title="Atherium-X // Wi-Fi Networks" \
+    --text="Double-click a Wi-Fi network to connect:" \
+    --width=560 --height=420 \
+    --column="Status" --column="Network (SSID)" --column="Signal" --column="Security" \
+    --print-column=2 \
+    "${ROWS[@]}" || true)
+
+[[ -z "${SELECTED}" ]] && exit 0
+
+# Try connecting using existing saved profile first
+if nmcli connection up id "${SELECTED}" >/dev/null 2>&1; then
+    notify-send -i atherium-network "ATHERIUM-X // WI-FI" "Connected to ${SELECTED}"
+    exit 0
+fi
+
+# Prompt for Wi-Fi password
+PASS=$(zenity --password \
+    --title="Connect to ${SELECTED}" \
+    --text="Enter Wi-Fi password for '${SELECTED}' (leave blank for open network):" || true)
+
+if [[ -n "${PASS}" ]]; then
+    if OUT=$(nmcli dev wifi connect "${SELECTED}" password "${PASS}" 2>&1); then
+        notify-send -i atherium-network "ATHERIUM-X // WI-FI" "Connected to ${SELECTED}"
+    else
+        zenity --error --title="Atherium-X // Wi-Fi Error" --width=420 --text="Failed to connect to ${SELECTED}:\n\n${OUT}"
+    fi
+else
+    if OUT=$(nmcli dev wifi connect "${SELECTED}" 2>&1); then
+        notify-send -i atherium-network "ATHERIUM-X // WI-FI" "Connected to ${SELECTED}"
+    else
+        zenity --error --title="Atherium-X // Wi-Fi Error" --width=420 --text="Failed to connect to ${SELECTED}:\n\n${OUT}"
+    fi
+fi

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Terminal
+Exec=lxterminal
+Icon=atherium-terminal
+Type=Application
+Terminal=false

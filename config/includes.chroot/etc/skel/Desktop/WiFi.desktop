@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Wi-Fi Networks
+Exec=/usr/local/bin/atherium-wifi
+Icon=atherium-network
+Type=Application
+Terminal=false

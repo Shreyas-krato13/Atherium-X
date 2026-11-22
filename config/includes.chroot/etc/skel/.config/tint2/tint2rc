@@ -1,84 +1,159 @@
-# Atherium-X Top HUD Panel (tint2)
-rounded = 0
-border_width = 0
-border_sides = B
-border_content_tint_weight = 0
-background_color = #070d1a 92
-border_color = #00e5ff 90
+# Atherium-X Windows-Style Bottom HUD Taskbar (tint2)
+# Dark glass + electric cyan top border + Start Menu + Pinned Apps + Wi-Fi + Tray + Clock + Power
 
-# Background 1: Panel bar
+# Background 1: Main bottom taskbar
 rounded = 0
 border_width = 2
-border_sides = B
-background_color = #070d1a 92
-border_color = #00e5ff 85
+border_sides = T
+background_color = #070d1a 94
+border_color = #00e5ff 90
 
-# Background 2: Active task / button
-rounded = 4
+# Background 2: Accent Start / Active button
+rounded = 6
 border_width = 1
 border_sides = TBLR
-background_color = #0e243d 95
+background_color = #0e2a47 95
 border_color = #00e5ff 95
 
-# Background 3: Inactive task
-rounded = 4
+# Background 3: Quick-launch & inactive task button
+rounded = 6
 border_width = 1
 border_sides = TBLR
-background_color = #0b1324 80
-border_color = #1e3a5f 70
+background_color = #0b1529 88
+border_color = #1e3a5f 80
 
-panel_items = P:T:S:B:C
-panel_size = 100% 34
+# Background 4: Power button
+rounded = 6
+border_width = 1
+border_sides = TBLR
+background_color = #240b18 90
+border_color = #f43f5e 85
+
+# Panel layout: Start | Pinned Apps | Taskbar | Tray | Wi-Fi | Battery | Clock | Power
+panel_items = PPPPPP:T:S:P:B:C:P
+panel_size = 100% 44
 panel_margin = 0 0
-panel_padding = 8 3 8
+panel_padding = 8 4 6
 panel_background_id = 1
-panel_position = top center horizontal
+panel_position = bottom center horizontal
 panel_layer = top
 panel_monitor = all
 wm_menu = 1
 
-# Button: HUD App Launcher (rofi)
+# Button 1: START MENU (Full-screen JARVIS App Grid)
 button = new
-button_text = ◈ ATHERIUM-X
-button_tooltip = Launch Applications (Alt+Space)
+button_text = ◈ START
+button_tooltip = Open Atherium-X Start Menu (Alt+Space)
 button_font = Hack Bold 10
 button_font_color = #00e5ff 100
 button_background_id = 2
-button_padding = 10 2
-button_lclick_command = rofi -show drun -theme ~/.config/rofi/atherium.rasi
+button_padding = 12 4
+button_lclick_command = /usr/local/bin/atherium-menu
 
-# Taskbar
+# Button 2: Browser (Firefox ESR)
+button = new
+button_text = Browser
+button_tooltip = Launch Firefox ESR Web Browser
+button_font = DejaVu Sans Bold 9
+button_font_color = #e0f2fe 100
+button_background_id = 3
+button_padding = 10 4
+button_lclick_command = firefox-esr
+
+# Button 3: Files (PCManFM)
+button = new
+button_text = Files
+button_tooltip = Open File Manager
+button_font = DejaVu Sans Bold 9
+button_font_color = #e0f2fe 100
+button_background_id = 3
+button_padding = 10 4
+button_lclick_command = pcmanfm
+
+# Button 4: Terminal
+button = new
+button_text = Terminal
+button_tooltip = Open Terminal (Ctrl+Alt+T)
+button_font = DejaVu Sans Bold 9
+button_font_color = #e0f2fe 100
+button_background_id = 3
+button_padding = 10 4
+button_lclick_command = lxterminal
+
+# Button 5: Atherium Store
+button = new
+button_text = Store
+button_tooltip = Open Atherium Snap Store
+button_font = DejaVu Sans Bold 9
+button_font_color = #e0f2fe 100
+button_background_id = 3
+button_padding = 10 4
+button_lclick_command = lxterminal --title="Atherium Store" -e /usr/local/bin/atherium-store
+
+# Button 6: Games
+button = new
+button_text = Games
+button_tooltip = Launch Atherium Games
+button_font = DejaVu Sans Bold 9
+button_font_color = #e0f2fe 100
+button_background_id = 3
+button_padding = 10 4
+button_lclick_command = /usr/local/bin/atherium-games
+
+# Taskbar (Running windows)
 taskbar_mode = single_desktop
-taskbar_padding = 6 0 6
+taskbar_padding = 8 0 6
 taskbar_background_id = 0
 task_icon = 1
 task_text = 1
 task_centered = 0
-task_maximum_size = 180 28
-task_padding = 6 2 6
+task_maximum_size = 180 34
+task_padding = 8 4 6
 task_font = DejaVu Sans 9
 task_font_color = #94a3b8 100
 task_active_font_color = #00e5ff 100
 task_background_id = 3
 task_active_background_id = 2
 
-# System Tray (nm-applet etc.)
-systray_padding = 6 4 6
+# System Tray (enlarged 24px icons for nm-applet)
+systray_padding = 8 4 6
 systray_background_id = 0
-systray_icon_size = 18
+systray_icon_size = 24
 systray_icon_asb = 100 0 0
+
+# Button 7: Dedicated Wi-Fi GUI Manager
+button = new
+button_text = Wi-Fi
+button_tooltip = Connect to Wi-Fi Networks
+button_font = Hack Bold 9.5
+button_font_color = #00e5ff 100
+button_background_id = 2
+button_padding = 10 4
+button_lclick_command = /usr/local/bin/atherium-wifi
 
 # Battery
 battery_tooltip = 1
 battery_low_status = 15
 battery_font_color = #38bdf8 100
 bat1_format = BAT %p
-bat1_font = Hack 9
-battery_padding = 6 2
+bat1_font = Hack Bold 9
+battery_padding = 8 2
 
-# Clock
-time1_format = %H:%M:%S  |  %a %d %b
-time1_font = Hack Bold 9.5
-clock_font_color = #00e5ff 100
+# Windows-style 2-line Clock & Date
+time1_format = %H:%M
+time1_font = Hack Bold 10
+time2_format = %d-%m-%Y
+time2_font = Hack 8
+clock_font_color = #e0f2fe 100
 clock_padding = 8 2
 clock_background_id = 0
+
+# Button 8: Power Menu (Shutdown / Reboot / Logout)
+button = new
+button_text = Power
+button_tooltip = Shutdown / Reboot / Logout
+button_font = Hack Bold 9
+button_font_color = #fda4af 100
+button_background_id = 4
+button_padding = 10 4
+button_lclick_command = /usr/local/bin/atherium-power

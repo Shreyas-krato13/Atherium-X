@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Atherium-X Full-Screen JARVIS HUD Start Menu Launcher
+exec rofi -show drun -theme "$HOME/.config/rofi/atherium.rasi"

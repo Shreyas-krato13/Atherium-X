@@ -40,10 +40,10 @@
   </desktops>
   <keyboard>
     <keybind key="A-space">
-      <action name="Execute"><command>rofi -show drun -theme ~/.config/rofi/atherium.rasi</command></action>
+      <action name="Execute"><command>/usr/local/bin/atherium-menu</command></action>
     </keybind>
     <keybind key="Super_L">
-      <action name="Execute"><command>rofi -show drun -theme ~/.config/rofi/atherium.rasi</command></action>
+      <action name="Execute"><command>/usr/local/bin/atherium-menu</command></action>
     </keybind>
     <keybind key="C-A-t">
       <action name="Execute"><command>x-terminal-emulator</command></action>

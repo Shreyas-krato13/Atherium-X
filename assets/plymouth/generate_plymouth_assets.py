@@ -77,11 +77,11 @@ def generate_boot_splash():
     ax.add_patch(patches.RegularPolygon((cx, cy), numVertices=6, radius=18, orientation=math.radians(30),
                                         fill=False, edgecolor="#00e5ff", linewidth=2.0, alpha=0.8))
 
-    # Header bar
+    # Header bar (keep bottom clear so GRUB timeout bar never overlaps)
     ax.plot([24, 616], [428, 428], color="#00e5ff", linewidth=1.5, alpha=0.7)
     ax.text(28, 444, "ATHERIUM-X // LIVE BOOTLOADER", color="#00e5ff", fontsize=13,
             fontfamily="monospace", fontweight="bold")
-    ax.text(28, 22, "DEBIAN STABLE HYBRID BIOS+UEFI  |  JARVIS HUD EDITION", color="#38bdf8",
+    ax.text(28, 412, "DEBIAN STABLE HYBRID BIOS+UEFI  |  JARVIS HUD EDITION", color="#38bdf8",
             fontsize=8.5, fontfamily="monospace", alpha=0.7)
 
     out = os.path.join(BASE, "splash_640x480.png")

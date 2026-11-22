@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Files
+Exec=pcmanfm
+Icon=atherium-files
+Type=Application
+Terminal=false

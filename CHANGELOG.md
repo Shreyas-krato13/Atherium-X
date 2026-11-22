@@ -2,6 +2,13 @@
 
 All notable phases and size/verification milestones for **Atherium-X** are documented here.
 
+## [Phase 9.2] - Windows-Style JARVIS HUD UX Upgrade (Verified Statically)
+- Replaced minimal top bar with a **44px Windows-style bottom HUD taskbar** (`tint2`): **`◈ START`**, pinned **Browser / Files / Terminal / Store / Games**, running tasks, enlarged `24px` system tray (`nm-applet`), dedicated **`Wi-Fi`** button, **Battery %**, 2-line **Clock/Date**, and **`Power`** (**Shutdown / Reboot / Logout**).
+- Upgraded **Start Menu** (`atherium-menu` / `rofi`) to an `82% x 76%` translucent dark-glass **5-column large-icon (52px) app grid** with search bar; fixed `tint2` `~` expansion bug.
+- Added one-click GUI Wi-Fi manager (`atherium-wifi` via `zenity` + `nmcli`), GUI Power menu (`atherium-power`), and clickable Desktop app shortcuts (`pcmanfm --desktop` + `/etc/skel/Desktop/*.desktop`).
+- Polished `dunst` notifications to `top-center` (no Conky overlap) and fixed GRUB splash footer overlap.
+- **Static Verification:** PASS — ISO **691.00 MB** / 700 MB (SquashFS 598.90 MB, 9.00 MB remaining), BIOS + UEFI hybrid + SHA256 verified. *(Real-hardware HUD/Wi-Fi UX: NEEDS HARDWARE TEST)*
+
 ## [Phase 9.1] - Real-Hardware Boot Fix (Dell Vostro 3520)
 - **Fixed `Authentication failure` on auto-login:** Added `user-setup` (`1.107`) to `01-core.list.chroot` so `live-config` creates the `atherium` user at boot (previously skipped by `--apt-recommends false`).
 - **Hardened Xorg + D-Bus desktop launch:** Added `xserver-xorg-legacy`, `dbus-x11`, `/etc/X11/Xwrapper.config`, and `dbus-run-session` in `.xinitrc`.

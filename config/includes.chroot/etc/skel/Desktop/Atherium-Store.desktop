@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Atherium Store
+Exec=lxterminal --title="Atherium Store" -e /usr/local/bin/atherium-store
+Icon=atherium-store
+Type=Application
+Terminal=false

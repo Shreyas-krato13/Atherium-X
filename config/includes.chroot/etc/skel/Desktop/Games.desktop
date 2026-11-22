@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Atherium Games
+Exec=/usr/local/bin/atherium-games
+Icon=atherium-games
+Type=Application
+Terminal=false
