@@ -2,6 +2,12 @@
 
 All notable phases and size/verification milestones for **Atherium-X** are documented here.
 
+## [Phase 9.1] - Real-Hardware Boot Fix (Dell Vostro 3520)
+- **Fixed `Authentication failure` on auto-login:** Added `user-setup` (`1.107`) to `01-core.list.chroot` so `live-config` creates the `atherium` user at boot (previously skipped by `--apt-recommends false`).
+- **Hardened Xorg + D-Bus desktop launch:** Added `xserver-xorg-legacy`, `dbus-x11`, `/etc/X11/Xwrapper.config`, and `dbus-run-session` in `.xinitrc`.
+- **Fixed GRUB/ISOLINUX branding hook:** Updated `0700-brand-bootloaders.hook.binary` to use paths relative to `binary/` (verified `21 KB` Atherium-X splash + `"Atherium-X Live (JARVIS HUD)"` menu entries + cyan theme).
+- **Static Verification:** PASS — ISO **685.00 MB** / 700 MB (SquashFS 593.10 MB), BIOS + UEFI hybrid + SHA256 verified. *(Real-hardware login & HUD test: NEEDS HARDWARE TEST)*
+
 ## [Phase 9] - Final Optimization & Release Build (Verified Statically)
 - Excluded duplicate `boot/initrd.img-*` and `boot/vmlinuz-*` from `filesystem.squashfs` in `auto/build` (live-boot loads `/live/vmlinuz` and `/live/initrd.img` outside squashfs), reclaiming **77.00 MB** with zero feature loss.
 - Added final cache/log/backup-db trim in `0990-strip-bloat.hook.chroot`.

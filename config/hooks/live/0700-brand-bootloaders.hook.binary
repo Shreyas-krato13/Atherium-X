@@ -1,32 +1,39 @@
 #!/bin/sh
 set -e
 
-echo "I: Atherium-X: Branding GRUB-EFI and ISOLINUX boot menus..."
+# Note: live-build executes .hook.binary scripts with CWD = binary/
+echo "I: Atherium-X: Branding GRUB-EFI and ISOLINUX boot menus (cwd=$(pwd))..."
 
 # Brand GRUB menu (UEFI)
-if [ -f binary/boot/grub/grub.cfg ]; then
-    sed -i 's/Debian GNU\/Linux Live/Atherium-X Live (JARVIS HUD)/g' binary/boot/grub/grub.cfg || true
-    sed -i 's/Live system/Atherium-X Live (JARVIS HUD)/g' binary/boot/grub/grub.cfg || true
-    # Inject electric-cyan / obsidian menu colors at top of grub.cfg
+if [ -f boot/grub/grub.cfg ]; then
+    sed -i 's/Debian GNU\/Linux Live/Atherium-X Live (JARVIS HUD)/g' boot/grub/grub.cfg || true
+    sed -i 's/Live system/Atherium-X Live (JARVIS HUD)/g' boot/grub/grub.cfg || true
     {
         echo "set menu_color_normal=cyan/black"
         echo "set menu_color_highlight=black/cyan"
         echo "set timeout=5"
-        cat binary/boot/grub/grub.cfg
-    } > binary/boot/grub/grub.cfg.new
-    mv binary/boot/grub/grub.cfg.new binary/boot/grub/grub.cfg
+        cat boot/grub/grub.cfg
+    } > boot/grub/grub.cfg.new
+    mv boot/grub/grub.cfg.new boot/grub/grub.cfg
+fi
+
+# Brand GRUB live-theme colors (electric cyan)
+if [ -f boot/grub/live-theme/theme.txt ]; then
+    sed -i 's/selected_item_color= "#ffffff"/selected_item_color= "#00e5ff"/g' boot/grub/live-theme/theme.txt || true
+    sed -i 's/fg_color = "#ffffff"/fg_color = "#00e5ff"/g' boot/grub/live-theme/theme.txt || true
+    sed -i 's/border_color = "#ffffff"/border_color = "#00e5ff"/g' boot/grub/live-theme/theme.txt || true
 fi
 
 # Brand ISOLINUX menu (Legacy BIOS)
-for f in binary/isolinux/menu.cfg binary/isolinux/live.cfg binary/isolinux/stdmenu.cfg; do
+for f in isolinux/menu.cfg isolinux/live.cfg isolinux/stdmenu.cfg; do
     if [ -f "$f" ]; then
         sed -i 's/Debian GNU\/Linux/Atherium-X/g' "$f" || true
         sed -i 's/Live system/Atherium-X Live (JARVIS HUD)/g' "$f" || true
     fi
 done
 
-# Copy custom 640x480 splash into ISOLINUX & GRUB if present
-if [ -f assets/plymouth/splash_640x480.png ]; then
-    cp -f assets/plymouth/splash_640x480.png binary/isolinux/splash.png 2>/dev/null || true
-    cp -f assets/plymouth/splash_640x480.png binary/boot/grub/splash.png 2>/dev/null || true
+# Copy custom 640x480 splash into ISOLINUX & GRUB (build root is ../)
+if [ -f ../assets/plymouth/splash_640x480.png ]; then
+    cp -f ../assets/plymouth/splash_640x480.png isolinux/splash.png 2>/dev/null || true
+    cp -f ../assets/plymouth/splash_640x480.png boot/grub/splash.png 2>/dev/null || true
 fi
