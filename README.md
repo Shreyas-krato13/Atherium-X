@@ -15,7 +15,8 @@
 
 Because GitHub limits individual files to 100 MB, the compiled **651.00 MB** bootable ISO binary is hosted on **Hugging Face**:
 
-- **Hugging Face ISO Repository:** `https://huggingface.co/datasets/<YOUR_HF_USERNAME>/Atherium-X-ISO` *(replace `<YOUR_HF_USERNAME>` with your Hugging Face username)*
+- **Hugging Face ISO Repository:** https://huggingface.co/datasets/warrior-kratos13/Atherium-X-ISO/tree/main
+- **Direct ISO Download:** https://huggingface.co/datasets/warrior-kratos13/Atherium-X-ISO/resolve/main/atherium-x.iso
 - **File:** `atherium-x.iso` (`651.00 MB` / `682,622,976` bytes)
 - **SHA256 Checksum ([atherium-x.iso.sha256](atherium-x.iso.sha256)):**
   ```text
