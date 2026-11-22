@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Atherium-X Games HUD Launcher (rofi menu -> native lightweight Debian games)
+CHOICE=$(printf "Space Invaders (ninvaders)\nMoon Buggy (moon-buggy)\nBastard Tetris (bastet)\n2048 Puzzle (2048)" \
+    | rofi -dmenu -i -p "◈ ATHERIUM GAMES" -theme ~/.config/rofi/atherium.rasi || true)
+
+case "${CHOICE}" in
+    *ninvaders*)  exec lxterminal --title="Atherium Games // nInvaders" -e ninvaders ;;
+    *moon-buggy*) exec lxterminal --title="Atherium Games // Moon Buggy" -e moon-buggy ;;
+    *bastet*)     exec lxterminal --title="Atherium Games // Bastet" -e bastet ;;
+    *2048*)       exec lxterminal --title="Atherium Games // 2048" -e 2048 ;;
+    *)            exit 0 ;;
+esac

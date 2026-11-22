@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Atherium System Monitor
+Comment=CPU, RAM, zram & process telemetry (htop)
+Exec=lxterminal --title="Atherium System Monitor" -e htop
+Icon=atherium-monitor
+Terminal=false
+Type=Application
+Categories=System;Monitor;
+Keywords=monitor;memory;ram;zram;cpu;htop;

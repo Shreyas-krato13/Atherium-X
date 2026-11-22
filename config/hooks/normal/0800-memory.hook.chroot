@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+
+echo "I: Atherium-X: Enabling earlyoom and verifying zram-generator..."
+systemctl enable earlyoom.service || true
+test -f /etc/systemd/zram-generator.conf

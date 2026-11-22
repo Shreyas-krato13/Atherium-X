@@ -2,6 +2,11 @@
 
 All notable phases and size/verification milestones for **Atherium-X** are documented here.
 
+## [Phase 8] - Apps, Browser, Games & Memory Management (Pre-Optimization Build)
+- Added `config/package-lists/08-apps-memory.list.chroot`: `firefox-esr` (Debian repo), `pcmanfm`, `lxterminal`, `mousepad`, `mpv`, `htop`, native tiny games (`ninvaders`, `moon-buggy`, `bastet`, `2048` — < 2 MB total), `systemd-zram-generator`, `earlyoom`.
+- Configured zram (`zstd`, `min(ram/2, 4096)`), sysctl (`vm.swappiness=100`, `vm.page-cluster=0`), `earlyoom`, `atherium-games` HUD launcher, `atherium-monitor` desktop entry, `COMPRESS=xz` for `initrd.img`, and documented live-boot `tmpfs`/`overlayfs` RAM behavior in `docs/APPS_AND_MEMORY.md`.
+- **Measured Pre-Optimization ISO Size:** **762.00 MB** (SquashFS 670.10 MB) — identified **79 MB** of duplicate `/boot/initrd.img-*` + `/boot/vmlinuz-*` inside SquashFS to eliminate in Phase 9.
+
 ## [Phase 7] - Boot Animation & Branding (Verified Statically)
 - Added `config/package-lists/07-boot-branding.list.chroot` (`plymouth`, `plymouth-label`) and `splash` boot flag in `auto/config`.
 - Built script-based Plymouth `atherium-x` theme (`43.5 KB` total PNG sprites): counter-rotating geometric neon rings, pulsing core, `"ATHERIUM-X // INITIALIZING"`, and sequentially fading-in system-check lines.

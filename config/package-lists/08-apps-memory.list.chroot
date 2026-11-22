@@ -1,0 +1,21 @@
+# Phase 8: Browser, Basic Apps, Tiny Native Games (< 30 MB), Memory Management
+
+# Web Browser (Debian repo, NOT snap)
+firefox-esr
+
+# Basic Desktop Apps
+pcmanfm
+lxterminal
+mousepad
+mpv
+htop
+
+# Tiny Native Games (< 2 MB total!)
+ninvaders
+moon-buggy
+bastet
+2048
+
+# Memory Management (zram compressed swap + earlyoom)
+systemd-zram-generator
+earlyoom
