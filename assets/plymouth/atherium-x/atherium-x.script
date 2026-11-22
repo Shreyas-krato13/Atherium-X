@@ -1,0 +1,88 @@
+// Atherium-X Plymouth Script Theme
+// Lightweight rotating geometric neon rings + progress pulse + system-check lines.
+
+Window.SetBackgroundTopColor(0.02, 0.035, 0.08);
+Window.SetBackgroundBottomColor(0.01, 0.02, 0.05);
+
+screen_w = Window.GetWidth();
+screen_h = Window.GetHeight();
+cx = screen_w / 2;
+cy = screen_h / 2 - 45;
+
+outer_img = Image("outer_ring.png");
+inner_img = Image("inner_ring.png");
+core_img  = Image("core.png");
+
+outer_sprite = Sprite(outer_img);
+inner_sprite = Sprite(inner_img);
+core_sprite  = Sprite(core_img);
+
+outer_sprite.SetPosition(cx - outer_img.GetWidth() / 2, cy - outer_img.GetHeight() / 2, 10);
+inner_sprite.SetPosition(cx - inner_img.GetWidth() / 2, cy - inner_img.GetHeight() / 2, 11);
+core_sprite.SetPosition(cx - core_img.GetWidth() / 2, cy - core_img.GetHeight() / 2, 12);
+
+// Title text
+title_img = Image.Text("ATHERIUM-X // INITIALIZING", 0.0, 0.90, 1.0, 1.0, "Hack Bold 16");
+title_sprite = Sprite(title_img);
+title_sprite.SetPosition(cx - title_img.GetWidth() / 2, cy + 150, 20);
+
+// Progress pulse bar
+bar_w = 340;
+bar_h = 4;
+bar_x = cx - bar_w / 2;
+bar_y = cy + 188;
+
+bar_bg_img = Image(bar_w, bar_h);
+bar_bg_sprite = Sprite();
+bar_bg_sprite.SetPosition(bar_x, bar_y, 19);
+
+// System-check status lines (fading in sequentially)
+checks[0] = "[OK] CORE KERNEL & LIVE OVERLAYFS";
+checks[1] = "[OK] HARDWARE DRIVERS & MESA 3D";
+checks[2] = "[OK] NETWORK & APPARMOR SECURITY";
+checks[3] = "[OK] LAUNCHING JARVIS HUD DESKTOP";
+
+for (i = 0; i < 4; i++) {
+    chk_img[i] = Image.Text(checks[i], 0.22, 0.74, 0.97, 1.0, "Hack 10");
+    chk_sprite[i] = Sprite(chk_img[i]);
+    chk_sprite[i].SetPosition(cx - chk_img[i].GetWidth() / 2, cy + 210 + i * 22, 20);
+    chk_sprite[i].SetOpacity(0.0);
+}
+
+tick = 0;
+progress = 0.0;
+
+fun refresh_callback() {
+    tick++;
+    angle_outer = (tick * 0.045) % 6.28318;
+    angle_inner = (-tick * 0.075) % 6.28318;
+
+    rot_outer = outer_img.Rotate(angle_outer);
+    outer_sprite.SetImage(rot_outer);
+    outer_sprite.SetPosition(cx - rot_outer.GetWidth() / 2, cy - rot_outer.GetHeight() / 2, 10);
+
+    rot_inner = inner_img.Rotate(angle_inner);
+    inner_sprite.SetImage(rot_inner);
+    inner_sprite.SetPosition(cx - rot_inner.GetWidth() / 2, cy - rot_inner.GetHeight() / 2, 11);
+
+    // Subtle core pulse
+    pulse = 0.72 + 0.28 * Math.Sin(tick * 0.14);
+    core_sprite.SetOpacity(pulse);
+
+    // Fade in system-check lines smoothly without blocking boot
+    for (i = 0; i < 4; i++) {
+        threshold = 12 + i * 18;
+        if (tick > threshold) {
+            op = (tick - threshold) / 18.0;
+            if (op > 0.92) op = 0.92;
+            chk_sprite[i].SetOpacity(op);
+        }
+    }
+}
+
+fun progress_callback(duration, prog) {
+    progress = prog;
+}
+
+Plymouth.SetRefreshFunction(refresh_callback);
+Plymouth.SetBootProgressFunction(progress_callback);

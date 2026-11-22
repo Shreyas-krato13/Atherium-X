@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+
+echo "I: Atherium-X: Configuring Plymouth 'atherium-x' theme and rebuilding initramfs..."
+if [ -d /usr/share/plymouth/themes/atherium-x ]; then
+    plymouth-set-default-theme -R atherium-x
+fi

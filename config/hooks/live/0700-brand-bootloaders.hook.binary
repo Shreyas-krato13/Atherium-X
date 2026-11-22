@@ -1,0 +1,32 @@
+#!/bin/sh
+set -e
+
+echo "I: Atherium-X: Branding GRUB-EFI and ISOLINUX boot menus..."
+
+# Brand GRUB menu (UEFI)
+if [ -f binary/boot/grub/grub.cfg ]; then
+    sed -i 's/Debian GNU\/Linux Live/Atherium-X Live (JARVIS HUD)/g' binary/boot/grub/grub.cfg || true
+    sed -i 's/Live system/Atherium-X Live (JARVIS HUD)/g' binary/boot/grub/grub.cfg || true
+    # Inject electric-cyan / obsidian menu colors at top of grub.cfg
+    {
+        echo "set menu_color_normal=cyan/black"
+        echo "set menu_color_highlight=black/cyan"
+        echo "set timeout=5"
+        cat binary/boot/grub/grub.cfg
+    } > binary/boot/grub/grub.cfg.new
+    mv binary/boot/grub/grub.cfg.new binary/boot/grub/grub.cfg
+fi
+
+# Brand ISOLINUX menu (Legacy BIOS)
+for f in binary/isolinux/menu.cfg binary/isolinux/live.cfg binary/isolinux/stdmenu.cfg; do
+    if [ -f "$f" ]; then
+        sed -i 's/Debian GNU\/Linux/Atherium-X/g' "$f" || true
+        sed -i 's/Live system/Atherium-X Live (JARVIS HUD)/g' "$f" || true
+    fi
+done
+
+# Copy custom 640x480 splash into ISOLINUX & GRUB if present
+if [ -f assets/plymouth/splash_640x480.png ]; then
+    cp -f assets/plymouth/splash_640x480.png binary/isolinux/splash.png 2>/dev/null || true
+    cp -f assets/plymouth/splash_640x480.png binary/boot/grub/splash.png 2>/dev/null || true
+fi

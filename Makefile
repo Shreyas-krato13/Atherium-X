@@ -34,6 +34,10 @@ build:
 		mkdir -p "$(BUILD_DIR)/config/includes.chroot/usr/share/backgrounds/atherium-x"; \
 		cp -f assets/wallpaper/atherium-hud.png "$(BUILD_DIR)/config/includes.chroot/usr/share/backgrounds/atherium-x/"; \
 	fi
+	@if [ -d assets/plymouth/atherium-x ]; then \
+		mkdir -p "$(BUILD_DIR)/config/includes.chroot/usr/share/plymouth/themes"; \
+		rsync -a assets/plymouth/atherium-x "$(BUILD_DIR)/config/includes.chroot/usr/share/plymouth/themes/"; \
+	fi
 	find "$(BUILD_DIR)/auto" "$(BUILD_DIR)/config" -type f ! -name '*.png' -exec sed -i 's/\r$$//' {} + 2>/dev/null || true
 	chmod +x "$(BUILD_DIR)"/auto/*
 	find "$(BUILD_DIR)/config/hooks" -type f -name '*.hook.*' -exec chmod +x {} + 2>/dev/null || true

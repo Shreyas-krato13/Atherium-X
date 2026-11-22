@@ -2,6 +2,12 @@
 
 All notable phases and size/verification milestones for **Atherium-X** are documented here.
 
+## [Phase 7] - Boot Animation & Branding (Verified Statically)
+- Added `config/package-lists/07-boot-branding.list.chroot` (`plymouth`, `plymouth-label`) and `splash` boot flag in `auto/config`.
+- Built script-based Plymouth `atherium-x` theme (`43.5 KB` total PNG sprites): counter-rotating geometric neon rings, pulsing core, `"ATHERIUM-X // INITIALIZING"`, and sequentially fading-in system-check lines.
+- Added binary bootloader branding hook (`0700-brand-bootloaders.hook.binary`) for cyan/obsidian GRUB-EFI + ISOLINUX menus and `640x480` splash image.
+- **Static Verification:** PASS — ISO **632.00 MB** / 700 MB (**+25.00 MB**; 68.00 MB remaining; SquashFS 539.83 MB). *(Animation timing & handoff: NEEDS HARDWARE TEST)*
+
 ## [Phase 6] - Desktop & JARVIS-Style HUD Interface (Verified Statically)
 - Added `config/package-lists/06-desktop.list.chroot` (`xinit`, `openbox`, `picom`, `tint2`, `rofi`, `conky-std`, `dunst`, `libnotify-bin`, `feh`, `fonts-dejavu-core`, `fonts-hack`, `dmz-cursor-theme`).
 - Built custom dark-glass & electric-cyan Openbox + GTK3 themes (`Atherium-X`), `picom.conf`, `tint2rc`, `rofi/atherium.rasi`, `conky.conf` telemetry HUD, and `dunstrc`.

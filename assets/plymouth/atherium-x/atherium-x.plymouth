@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Atherium-X
+Description=Atherium-X Futuristic Rotating Arc-Ring HUD Boot Splash
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/atherium-x
+ScriptFile=/usr/share/plymouth/themes/atherium-x/atherium-x.script
