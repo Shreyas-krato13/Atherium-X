@@ -1,7 +1,7 @@
 phase,components_added,firmware_kernel_time,userspace_time,systemd_total,stopwatch_total_sec,iso_size_mb
 "Phase 1","Minimal bootable CLI core (systemd + live-boot + autologin)","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","252.00"
 "Phase 2","Hardware compatibility (Dell Vostro firmware + microcode + Mesa + audio)","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","456.00"
-"Phase 3","Network connectivity (NetworkManager + WiFi + Ethernet + DNS)","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<PENDING BUILD>"
+"Phase 3","Network connectivity (NetworkManager + WiFi + Ethernet + DNS)","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","538.00"
 "Phase 4","Package manager (APT + aptitude + Debian sources)","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<PENDING BUILD>"
 "Phase 5","Snap Store (snapd + Atherium Store launcher)","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<PENDING BUILD>"
 "Phase 6","Desktop & JARVIS-style HUD (Xorg + Openbox + picom + tint2 + rofi + SVG icons)","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<NEEDS HARDWARE MEASUREMENT>","<PENDING BUILD>"

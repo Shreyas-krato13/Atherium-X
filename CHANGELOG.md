@@ -2,6 +2,12 @@
 
 All notable phases and size/verification milestones for **Atherium-X** are documented here.
 
+## [Phase 3] - Network Connectivity (Verified Statically)
+- Updated ISO size budget cap to **700 MB** per user decision (keeping all Dell Vostro/laptop firmware unpruned + full Mesa 3D + `firefox-esr` + `snapd` + full JARVIS HUD).
+- Added `config/package-lists/03-network.list.chroot`: `network-manager`, `network-manager-applet`, `wpasupplicant`, `wireless-regdb`, `rfkill`, `systemd-resolved`, `libnss-resolve`, `iputils-ping`, `dnsutils`, `curl`.
+- Added `/etc/NetworkManager/conf.d/10-atherium-network.conf`, service-enable hook `0300-network.hook.chroot`, and `nettest.sh`.
+- **Static Verification:** PASS — ISO **538.00 MB** / 700 MB (SquashFS 458.70 MB, 162.00 MB remaining), BIOS + UEFI hybrid + SHA256 verified. *(WiFi/LAN/DNS: NEEDS HARDWARE TEST)*
+
 ## [Phase 2] - Hardware Compatibility (Verified Statically — Size Budget Alert)
 - Added `config/package-lists/02-hardware.list.chroot`: `firmware-iwlwifi`, `firmware-realtek`, `firmware-atheros`, `firmware-brcm80211`, `firmware-sof-signed`, `intel-microcode`, `amd64-microcode`, Xorg + Mesa (`libgl1-mesa-dri`, `intel`/`amdgpu`/`nouveau`/`modesetting`/`vesa`/`fbdev`), `libinput`, PipeWire/ALSA, `acpid`/`upower`/`brightnessctl`.
 - Added Dell Vostro touchpad configuration (`/etc/X11/xorg.conf.d/40-libinput.conf`), `hwcheck.sh`, and `docs/HARDWARE.md`.

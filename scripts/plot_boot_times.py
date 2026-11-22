@@ -81,8 +81,8 @@ def main():
         ax2.bar(x, iso_sizes, alpha=0.22, color="#22d3ee", width=0.45, label="ISO Size (MB)")
         ax2.set_ylabel("ISO Size (MB)", color="#67e8f9", fontsize=11)
         ax2.tick_params(axis="y", colors="#67e8f9")
-        ax2.set_ylim(0, 550)
-        ax2.axhline(500, color="#ef4444", linestyle=":", linewidth=1.2, label="500 MB Budget")
+        ax2.set_ylim(0, 750)
+        ax2.axhline(700, color="#ef4444", linestyle=":", linewidth=1.2, label="700 MB Budget")
 
     lines1, labels1 = ax1.get_legend_handles_labels()
     if any(iso_sizes):

@@ -1,0 +1,11 @@
+# Phase 3: Network Connectivity (WiFi + Ethernet + Tray Applet + DNS)
+network-manager
+network-manager-applet
+wpasupplicant
+wireless-regdb
+rfkill
+systemd-resolved
+libnss-resolve
+iputils-ping
+dnsutils
+curl

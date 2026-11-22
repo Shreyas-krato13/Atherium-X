@@ -5,7 +5,7 @@ set -euo pipefail
 # No QEMU/KVM/emulators used — purely static inspection.
 
 ISO_PATH="${1:-atherium-x.iso}"
-MAX_MB=500
+MAX_MB=700
 MAX_BYTES=$((MAX_MB * 1024 * 1024))
 
 if [[ ! -f "${ISO_PATH}" ]]; then

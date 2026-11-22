@@ -9,7 +9,7 @@ ISO_PATH="${2:-atherium-x.iso}"
 BUILD_DIR="${3:-/var/tmp/atherium-x-build}"
 OUT_DIR="docs/size_reports"
 OUT_FILE="${OUT_DIR}/${PHASE}.md"
-MAX_MB=500
+MAX_MB=700
 
 mkdir -p "${OUT_DIR}"
 
