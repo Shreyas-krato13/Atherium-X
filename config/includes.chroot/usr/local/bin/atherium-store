@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Atherium Store Launcher
+# Launches snap-store if already installed in the live session,
+# or installs it on first online use via snapd.
+
+export PATH="$PATH:/snap/bin"
+
+if command -v snap-store >/dev/null 2>&1; then
+    exec snap-store "$@"
+fi
+
+echo "============================================================"
+echo "  ATHERIUM STORE // ON-DEMAND SNAP STORE INSTALLER"
+echo "============================================================"
+echo ""
+echo "Snap Store is installed on first online use to keep the"
+echo "Atherium-X ISO lean (pre-seeding snap-store + GNOME/core22"
+echo "runtimes would add ~700+ MB of squashfs blobs)."
+echo ""
+
+if ! getent hosts api.snapcraft.io >/dev/null 2>&1; then
+    echo "ERROR: No internet connection detected (cannot reach api.snapcraft.io)."
+    echo "Connect to WiFi or Ethernet first, then re-open Atherium Store."
+    read -r -p "Press Enter to close..."
+    exit 1
+fi
+
+echo "[1/3] Ensuring snapd is active and seeded..."
+sudo systemctl start snapd.socket snapd.service
+sudo snap wait system seed.loaded || true
+
+echo "[2/3] Installing snap-store (this downloads core + runtime snaps into RAM/zram)..."
+sudo snap install snap-store
+
+echo "[3/3] Launching Atherium Store (snap-store)..."
+exec /snap/bin/snap-store "$@"

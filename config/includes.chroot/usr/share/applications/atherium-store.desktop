@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Atherium Store
+Comment=Install & manage apps via Snap Store (on-demand)
+Exec=atherium-store
+Icon=atherium-store
+Terminal=true
+Type=Application
+Categories=System;PackageManager;
+Keywords=store;snap;apps;software;

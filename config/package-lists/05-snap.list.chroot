@@ -1,0 +1,6 @@
+# Phase 5: Snapd runtime + AppArmor confinement for live-session Snap Store
+snapd
+apparmor
+apparmor-utils
+squashfs-tools
+fuse3

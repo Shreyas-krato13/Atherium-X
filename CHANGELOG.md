@@ -2,6 +2,12 @@
 
 All notable phases and size/verification milestones for **Atherium-X** are documented here.
 
+## [Phase 5] - In-Built Store: Snap Store (Verified Statically)
+- Added `config/package-lists/05-snap.list.chroot` (`snapd`, `apparmor`, `apparmor-utils`, `squashfs-tools`, `fuse3`), enabled `snapd`/`apparmor` services, and added `apparmor=1 security=apparmor` to `--bootappend-live`.
+- Added `/usr/local/bin/atherium-store` + desktop entry for on-demand `snap-store` installation (pre-seeding `snap-store` + `core22` + `gnome-42-2204` + `gtk-common-themes` would add ~730 MB).
+- Documented squashfs-on-squashfs, AppArmor, and RAM/tmpfs caveats in `docs/SNAP_STORE.md`.
+- **Static Verification:** PASS — ISO **570.00 MB** / 700 MB (**+28.00 MB**; 130.00 MB remaining; SquashFS 490.15 MB). *(Live `snap install`: NEEDS HARDWARE TEST)*
+
 ## [Phase 4] - Package Manager: APT / aptitude (Verified Statically)
 - Added `config/package-lists/04-apt.list.chroot` (`apt`, `aptitude`, `debian-archive-keyring`, `ca-certificates`, `gnupg`) and chroot verification hook `0400-verify-apt.hook.chroot`.
 - Verified `sources.list` (`trixie main contrib non-free-firmware`) while keeping `/var/lib/apt/lists/*` stripped in the ISO.

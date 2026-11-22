@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+
+echo "I: Atherium-X: Enabling snapd and AppArmor services for live session..."
+systemctl enable snapd.socket || true
+systemctl enable snapd.service || true
+systemctl enable snapd.seeded.service || true
+systemctl enable apparmor.service || true
+
+# Ensure /snap mountpoint exists
+mkdir -p /snap /var/lib/snapd
