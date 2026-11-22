@@ -2,6 +2,11 @@
 
 All notable phases and size/verification milestones for **Atherium-X** are documented here.
 
+## [Phase 9] - Final Optimization & Release Build (Verified Statically)
+- Excluded duplicate `boot/initrd.img-*` and `boot/vmlinuz-*` from `filesystem.squashfs` in `auto/build` (live-boot loads `/live/vmlinuz` and `/live/initrd.img` outside squashfs), reclaiming **77.00 MB** with zero feature loss.
+- Added final cache/log/backup-db trim in `0990-strip-bloat.hook.chroot`.
+- **Final Static Verification:** PASS — ISO **685.00 MB** / 700 MB (SquashFS 592.91 MB, 15.00 MB remaining), BIOS + UEFI hybrid + MBR/GPT + SHA256 verified (`atherium-x.iso: OK`). *(Real-hardware validation on Dell Vostro: NEEDS HARDWARE TEST)*
+
 ## [Phase 8] - Apps, Browser, Games & Memory Management (Pre-Optimization Build)
 - Added `config/package-lists/08-apps-memory.list.chroot`: `firefox-esr` (Debian repo), `pcmanfm`, `lxterminal`, `mousepad`, `mpv`, `htop`, native tiny games (`ninvaders`, `moon-buggy`, `bastet`, `2048` — < 2 MB total), `systemd-zram-generator`, `earlyoom`.
 - Configured zram (`zstd`, `min(ram/2, 4096)`), sysctl (`vm.swappiness=100`, `vm.page-cluster=0`), `earlyoom`, `atherium-games` HUD launcher, `atherium-monitor` desktop entry, `COMPRESS=xz` for `initrd.img`, and documented live-boot `tmpfs`/`overlayfs` RAM behavior in `docs/APPS_AND_MEMORY.md`.

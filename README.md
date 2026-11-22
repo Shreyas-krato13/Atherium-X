@@ -1,6 +1,6 @@
 # Atherium-X
 
-**Atherium-X** is a custom, Debian-based (`trixie` / Debian 13 stable) hybrid BIOS + UEFI live-USB operating system engineered to fit in **<= 500 MB**, featuring a futuristic JARVIS-inspired HUD desktop, animated arc-reactor Plymouth boot splash, working networking, APT/aptitude, Snap Store support, browser, native lightweight games, and zram/earlyoom memory management.
+**Atherium-X** is a custom, Debian-based (`trixie` / Debian 13 stable) hybrid BIOS + UEFI live-USB operating system (**685.00 MB** final release ISO under the user-approved 700 MB cap), featuring a futuristic JARVIS-inspired HUD desktop, animated arc-reactor Plymouth boot splash, working networking, APT/aptitude, Snap Store support, `firefox-esr`, native lightweight games, and zram/earlyoom memory management.
 
 ## Quick Start (Build from Source)
 
@@ -37,6 +37,9 @@ See [docs/USB_FLASHING.md](docs/USB_FLASHING.md) for:
 
 ## Documentation
 - [docs/PACKAGING.md](docs/PACKAGING.md) — How source code becomes an ISO binary (with Mermaid diagram & 1-slide summary)
+- [docs/HARDWARE.md](docs/HARDWARE.md) — Dell Vostro hardware & firmware justification
+- [docs/SNAP_STORE.md](docs/SNAP_STORE.md) — Snap Store live-session caveats & size analysis
+- [docs/APPS_AND_MEMORY.md](docs/APPS_AND_MEMORY.md) — Browser/apps/games choices & live-boot tmpfs/overlayfs + zram/earlyoom architecture
 - [docs/TESTING.md](docs/TESTING.md) — Real-hardware verification checklist
 - [docs/USB_FLASHING.md](docs/USB_FLASHING.md) — USB flashing & Dell Vostro BIOS/UEFI guide
 - [docs/boot_times.csv](docs/boot_times.csv) — Real-hardware boot timing log

@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-export MKSQUASHFS_OPTIONS="-comp xz -b 1M -Xbcj x86 -no-exports"
+# Phase 9 optimization:
+# - Maximum xz compression with 1M block + x86 BCJ filter
+# - Exclude duplicate boot/initrd.img-* and boot/vmlinuz-* from squashfs (~79 MB saved);
+#   live-boot loads /live/vmlinuz and /live/initrd.img directly from the ISO outside squashfs.
+export MKSQUASHFS_OPTIONS="-comp xz -b 1M -Xbcj x86 -no-exports -wildcards -e boot/initrd.img-* boot/vmlinuz-*"
 
 lb build noauto "${@}" 2>&1 | tee build.log
