@@ -2,6 +2,11 @@
 
 All notable phases and size/verification milestones for **Atherium-X** are documented here.
 
+## [Phase 4] - Package Manager: APT / aptitude (Verified Statically)
+- Added `config/package-lists/04-apt.list.chroot` (`apt`, `aptitude`, `debian-archive-keyring`, `ca-certificates`, `gnupg`) and chroot verification hook `0400-verify-apt.hook.chroot`.
+- Verified `sources.list` (`trixie main contrib non-free-firmware`) while keeping `/var/lib/apt/lists/*` stripped in the ISO.
+- **Static Verification:** PASS — ISO **542.00 MB** / 700 MB (**+4.00 MB**; 158.00 MB remaining; SquashFS 462.55 MB). *(Online `apt update/install`: NEEDS HARDWARE TEST)*
+
 ## [Phase 3] - Network Connectivity (Verified Statically)
 - Updated ISO size budget cap to **700 MB** per user decision (keeping all Dell Vostro/laptop firmware unpruned + full Mesa 3D + `firefox-esr` + `snapd` + full JARVIS HUD).
 - Added `config/package-lists/03-network.list.chroot`: `network-manager`, `network-manager-applet`, `wpasupplicant`, `wireless-regdb`, `rfkill`, `systemd-resolved`, `libnss-resolve`, `iputils-ping`, `dnsutils`, `curl`.

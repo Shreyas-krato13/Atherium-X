@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+
+echo "I: Atherium-X: Verifying APT & aptitude runtime configuration..."
+command -v apt >/dev/null 2>&1
+command -v aptitude >/dev/null 2>&1
+test -f /usr/share/keyrings/debian-archive-keyring.gpg
+
+echo "I: Current /etc/apt/sources.list:"
+cat /etc/apt/sources.list

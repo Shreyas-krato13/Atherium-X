@@ -1,0 +1,6 @@
+# Phase 4: Package Manager (APT + aptitude + keyring + HTTPS certs)
+apt
+aptitude
+debian-archive-keyring
+ca-certificates
+gnupg
